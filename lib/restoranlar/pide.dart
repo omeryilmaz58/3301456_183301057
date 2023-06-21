@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mobil_app/sepet.dart';
+import 'package:mobil_app/menuler/restoran.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 class Pide extends StatefulWidget {
   const Pide({super.key});
@@ -9,7 +11,19 @@ class Pide extends StatefulWidget {
   _PideState createState() => _PideState();
 }
 
+class PideItem {
+  final String title;
+  String subtitle;
+
+  PideItem({required this.title, required this.subtitle});
+}
+
 class _PideState extends State<Pide> {
+  int fiyatYiyecek = 100;
+  int fiyatIcecek = 50;
+
+  List<PideItem> pideItems = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,20 +43,104 @@ class _PideState extends State<Pide> {
               ),
 
               ListTile(
+                leading: Image.asset("assets/image/karisik-pide.png"),
                 title: const Text('Karışık Pide'),
-                trailing: IconButton(icon: const Icon(Icons.add_circle_outline), onPressed: () {},),
+                subtitle: Text('$fiyatYiyecek TL'),
+                trailing: IconButton(icon: const Icon(Icons.add_circle_outline), onPressed: () {
+                  setState(() {
+                    bool isDuplicate = false;
+                    for (var item in pideItems) {
+                      if (item.title == 'Karışık Pide') {
+                        item.subtitle = '${int.parse(item.subtitle) + fiyatYiyecek}';
+                        isDuplicate = true;
+                        break;
+                      }
+                    }
+                    if (!isDuplicate) {
+                      pideItems.add(
+                        PideItem(
+                          title: 'Karışık Pide',
+                          subtitle: '$fiyatYiyecek',
+                        ),
+                      );
+                    }
+                  });
+                },),
               ),
               ListTile(
+                leading: Image.asset("assets/image/kiymali-pide.png"),
                 title: const Text('Kıymalı Pide'),
-                trailing: IconButton(icon: const Icon(Icons.add_circle_outline), onPressed: () {},),
+                subtitle: Text('$fiyatYiyecek TL'),
+                trailing: IconButton(icon: const Icon(Icons.add_circle_outline), onPressed: () {
+                  setState(() {
+                    bool isDuplicate = false;
+                    for (var item in pideItems) {
+                      if (item.title == 'Kıymalı Pide') {
+                        item.subtitle = '${int.parse(item.subtitle) + fiyatYiyecek}';
+                        isDuplicate = true;
+                        break;
+                      }
+                    }
+                    if (!isDuplicate) {
+                      pideItems.add(
+                        PideItem(
+                          title: 'Kıymalı Pide',
+                          subtitle: '$fiyatYiyecek',
+                        ),
+                      );
+                    }
+                  });
+                },),
               ),
               ListTile(
+                leading: Image.asset("assets/image/kasarli-pide.png"),
                 title: const Text('Kaşarlı Pide'),
-                trailing: IconButton(icon: const Icon(Icons.add_circle_outline), onPressed: () {},),
+                subtitle: Text('$fiyatYiyecek TL'),
+                trailing: IconButton(icon: const Icon(Icons.add_circle_outline), onPressed: () {
+                  setState(() {
+                    bool isDuplicate = false;
+                    for (var item in pideItems) {
+                      if (item.title == 'Kaşarlı Pide') {
+                        item.subtitle = '${int.parse(item.subtitle) + fiyatYiyecek}';
+                        isDuplicate = true;
+                        break;
+                      }
+                    }
+                    if (!isDuplicate) {
+                      pideItems.add(
+                        PideItem(
+                          title: 'Kaşarlı Pide',
+                          subtitle: '$fiyatYiyecek',
+                        ),
+                      );
+                    }
+                  });
+                },),
               ),
               ListTile(
+                leading: Image.asset("assets/image/kusbasili-pide.png"),
                 title: const Text('Kuşbaşılı Pide'),
-                trailing: IconButton(icon: const Icon(Icons.add_circle_outline), onPressed: () {},),
+                subtitle: Text('$fiyatYiyecek TL'),
+                trailing: IconButton(icon: const Icon(Icons.add_circle_outline), onPressed: () {
+                  setState(() {
+                    bool isDuplicate = false;
+                    for (var item in pideItems) {
+                      if (item.title == 'Kuşbaşılı Pide') {
+                        item.subtitle = '${int.parse(item.subtitle) + fiyatYiyecek}';
+                        isDuplicate = true;
+                        break;
+                      }
+                    }
+                    if (!isDuplicate) {
+                      pideItems.add(
+                        PideItem(
+                          title: 'Kuşbaşılı Pide',
+                          subtitle: '$fiyatYiyecek',
+                        ),
+                      );
+                    }
+                  });
+                },),
               ),
               const Card(
                 child: ListTile(
@@ -52,24 +150,129 @@ class _PideState extends State<Pide> {
                 child: Divider(color: Colors.red,height: 20,),
               ),
               ListTile(
+                leading: Image.asset("assets/image/ayran.png"),
                 title: const Text('Ayran'),
-                trailing: IconButton(icon: const Icon(Icons.add_circle_outline), onPressed: () {},),
+                subtitle: Text('$fiyatIcecek TL'),
+                trailing: IconButton(icon: const Icon(Icons.add_circle_outline), onPressed: () {
+                  setState(() {
+                    bool isDuplicate = false;
+                    for (var item in pideItems) {
+                      if (item.title == 'Ayran') {
+                        item.subtitle = '${int.parse(item.subtitle) + fiyatIcecek}';
+                        isDuplicate = true;
+                        break;
+                      }
+                    }
+                    if (!isDuplicate) {
+                      pideItems.add(
+                        PideItem(
+                          title: 'Ayran',
+                          subtitle: '$fiyatIcecek',
+                        ),
+                      );
+                    }
+                  });
+                },),
               ),
               ListTile(
+                leading: Image.asset("assets/image/kola.png"),
                 title: const Text('Kola'),
-                trailing: IconButton(icon: const Icon(Icons.add_circle_outline), onPressed: () {},),
+                subtitle: Text('$fiyatIcecek TL'),
+                trailing: IconButton(icon: const Icon(Icons.add_circle_outline), onPressed: () {
+                  setState(() {
+                    bool isDuplicate = false;
+                    for (var item in pideItems) {
+                      if (item.title == 'Kola') {
+                        item.subtitle = '${int.parse(item.subtitle) + fiyatIcecek}';
+                        isDuplicate = true;
+                        break;
+                      }
+                    }
+                    if (!isDuplicate) {
+                      pideItems.add(
+                        PideItem(
+                          title: 'Kola',
+                          subtitle: '$fiyatIcecek',
+                        ),
+                      );
+                    }
+                  });
+                },),
               ),
               ListTile(
+                leading: Image.asset("assets/image/gazoz.png"),
                 title: const Text('Gazoz'),
-                trailing: IconButton(icon: const Icon(Icons.add_circle_outline), onPressed: () {},),
+                subtitle: Text('$fiyatIcecek TL'),
+                trailing: IconButton(icon: const Icon(Icons.add_circle_outline), onPressed: () {
+                  setState(() {
+                    bool isDuplicate = false;
+                    for (var item in pideItems) {
+                      if (item.title == 'Gazoz') {
+                        item.subtitle = '${int.parse(item.subtitle) + fiyatIcecek}';
+                        isDuplicate = true;
+                        break;
+                      }
+                    }
+                    if (!isDuplicate) {
+                      pideItems.add(
+                        PideItem(
+                          title: 'Gazoz',
+                          subtitle: '$fiyatIcecek',
+                        ),
+                      );
+                    }
+                  });
+                },),
               ),
               ListTile(
+                leading: Image.asset("assets/image/soguk-cay.png"),
                 title: const Text('Soğuk Çay'),
-                trailing: IconButton(icon: const Icon(Icons.add_circle_outline), onPressed: () {},),
+                subtitle: Text('$fiyatIcecek TL'),
+                trailing: IconButton(icon: const Icon(Icons.add_circle_outline), onPressed: () {
+                  setState(() {
+                    bool isDuplicate = false;
+                    for (var item in pideItems) {
+                      if (item.title == 'Soğuk Çay') {
+                        item.subtitle = '${int.parse(item.subtitle) + fiyatIcecek}';
+                        isDuplicate = true;
+                        break;
+                      }
+                    }
+                    if (!isDuplicate) {
+                      pideItems.add(
+                        PideItem(
+                          title: 'Soğuk Çay',
+                          subtitle: '$fiyatIcecek',
+                        ),
+                      );
+                    }
+                  });
+                },),
               ),
               ListTile(
+                leading: Image.asset("assets/image/salgam-suyu.png"),
                 title: const Text('Şalgam Suyu'),
-                trailing: IconButton(icon: const Icon(Icons.add_circle_outline), onPressed: () {},),
+                subtitle: Text('$fiyatIcecek TL'),
+                trailing: IconButton(icon: const Icon(Icons.add_circle_outline), onPressed: () {
+                  setState(() {
+                    bool isDuplicate = false;
+                    for (var item in pideItems) {
+                      if (item.title == 'Şalgam Suyu') {
+                        item.subtitle = '${int.parse(item.subtitle) + fiyatIcecek}';
+                        isDuplicate = true;
+                        break;
+                      }
+                    }
+                    if (!isDuplicate) {
+                      pideItems.add(
+                        PideItem(
+                          title: 'Şalgam Suyu',
+                          subtitle: '$fiyatIcecek',
+                        ),
+                      );
+                    }
+                  });
+                },),
               ),
               const Padding(padding: EdgeInsets.symmetric(horizontal: 10),
                 child: Divider(color: Colors.red,height: 20,),
@@ -78,8 +281,10 @@ class _PideState extends State<Pide> {
                 splashColor: Colors.blueGrey,
                 backgroundColor: Colors.grey,
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const Sepet()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Sepet(items: pideItems))
+                  );
                 },
                 child: const Icon(Icons.add_shopping_cart),
               ),
@@ -89,6 +294,239 @@ class _PideState extends State<Pide> {
             ],
           ),
         ),
+    );
+  }
+}
+
+class Sepet extends StatefulWidget {
+  final List<PideItem> items;
+
+  const Sepet ({Key? key, required this.items}) : super(key: key);
+
+  @override
+  _SepetState createState() => _SepetState();
+}
+
+class _SepetState extends State<Sepet> {
+
+  int calculateTotalPrice(List<PideItem> items) {
+    int totalPrice = 0;
+    for(var item in items){
+      totalPrice += int.parse(item.subtitle);
+    }
+    return totalPrice;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final totalPrice = calculateTotalPrice(widget.items);
+
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blue[100],
+        leading: const CircleAvatar(
+          backgroundImage: AssetImage("assets/image/logo.png"),
+        ),
+        title:
+        Text(
+          'Yemek Kapıda',
+          style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.bold,
+              fontStyle: FontStyle.italic,
+              color: Colors.red[500]),
+        ),
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text('Toplam Tutar: $totalPrice TL'),
+            ],
+          ),
+        ),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            const Padding(padding: EdgeInsets.symmetric(horizontal: 10),
+              child: Divider(color: Colors.red,height: 20,),
+            ),
+            Container(
+              alignment: Alignment.center,
+              width: 200,
+              height: 50,
+              color: Colors.red[400],
+              child: const Text(
+                "SEPET",
+                style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white
+                ),
+              ),
+            ),
+            const Padding(padding: EdgeInsets.symmetric(horizontal: 10),
+              child: Divider(color: Colors.red,height: 20,),
+            ),
+            Card(
+              margin: const EdgeInsets.all(5),
+              elevation: 20,
+              color: Colors.blue[300],
+              child: const ListTile(
+                title: Text('Sipariş Özeti',
+                    style:
+                    TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: Divider(
+                color: Colors.red,
+                height: 20,
+              ),
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: widget.items.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text(widget.items[index].title),
+                    subtitle: Text(widget.items[index].subtitle + ' TL'),
+                    trailing: IconButton(
+                      icon: Icon(Icons.remove_circle_outline),
+                      onPressed: () {
+                        setState(() {
+                          widget.items.removeAt(index);
+                        });
+                      },
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          var alert = AlertDialog(
+            title: const Text("Ödeme Sayfasına Yönlendiriliyorsunuz."),
+            content: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Odeme())
+                );
+              },
+              child: const Text(
+                'Ödeme Sayfasına Git',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
+          );
+          showDialog(
+              context: context, builder: (BuildContext context) => alert);
+        },
+        child: const Icon(Icons.check_sharp),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+    );
+  }
+}
+
+void saveDataToDatabase(String name, String city, String district, String address, String phone) async {
+  var url = Uri.parse('http://localhost:11974/api');
+
+  var body = jsonEncode({
+    'name': name,
+    'city': city,
+    'district': district,
+    'address': address,
+    'phone': phone,
+  });
+
+  var response = await http.post(url, body: body);
+
+  if (response.statusCode == 200) {
+    print('Veriler kaydedildi');
+  } else {
+    print('Hata oluştu: ${response.statusCode}');
+  }
+}
+
+class Odeme extends StatelessWidget {
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController addressController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController cityController = TextEditingController();
+  final TextEditingController districtController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Ödeme Sayfası'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            TextField(
+              controller: nameController,
+              decoration: InputDecoration(
+                labelText: 'İsim Soyisim',
+              ),
+            ),
+            SizedBox(height: 12),
+            TextField(
+              controller: cityController,
+              decoration: InputDecoration(
+                labelText: 'Şehir',
+              ),
+            ),
+            SizedBox(height: 12),
+            TextField(
+              controller: districtController,
+              decoration: InputDecoration(
+                labelText: 'İlçe',
+              ),
+            ),
+            SizedBox(height: 12),
+            TextField(
+              controller: addressController,
+              decoration: InputDecoration(
+                labelText: 'Adres',
+              ),
+            ),
+            SizedBox(height: 12),
+            TextField(
+              controller: phoneController,
+              decoration: InputDecoration(
+                labelText: 'Telefon Numarası',
+              ),
+            ),
+            SizedBox(height: 24),
+            ElevatedButton(
+              onPressed: (){
+                String name = nameController.text;
+                String city = cityController.text;
+                String district = districtController.text;
+                String address = addressController.text;
+                String phone = phoneController.text;
+
+                saveDataToDatabase(name, city, district, address, phone);
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => Yemek(),));
+              },
+              child: Text('Ödeme Yap'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

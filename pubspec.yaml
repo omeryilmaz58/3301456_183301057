@@ -35,6 +35,16 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.5
+  sqflite: ^2.2.8+4
+  path: ^1.8.2
+  firebase_core: ^2.14.0
+  firebase_auth: ^4.6.3
+  cloud_firestore: ^4.8.1
+  get_it: ^7.6.0
+  ionicons: ^0.2.2
+  provider: ^6.0.5
+  fluttertoast: ^8.2.2
+  http: ^0.13.6
 
 dev_dependencies:
   flutter_test:
@@ -61,6 +71,67 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/image/logo.png
+    - C:\src\projects\mobil_app\assets\image\karisik-pide.png
+    - C:\src\projects\mobil_app\assets\image\kiymali-pide.png
+    - C:\src\projects\mobil_app\assets\image\kasarli-pide.png
+    - C:\src\projects\mobil_app\assets\image\kusbasili-pide.png
+    - C:\src\projects\mobil_app\assets\image\tavukburger.png
+    - C:\src\projects\mobil_app\assets\image\kofteburger.png
+    - C:\src\projects\mobil_app\assets\image\izgaraburger.png
+    - C:\src\projects\mobil_app\assets\image\cheeseburger.png
+    - C:\src\projects\mobil_app\assets\image\patates.png
+    - C:\src\projects\mobil_app\assets\image\adana.png
+    - C:\src\projects\mobil_app\assets\image\urfa.png
+    - C:\src\projects\mobil_app\assets\image\iskender.png
+    - C:\src\projects\mobil_app\assets\image\cag-kebap.png
+    - C:\src\projects\mobil_app\assets\image\beyti.png
+    - C:\src\projects\mobil_app\assets\image\et-doner-ekmek.png
+    - C:\src\projects\mobil_app\assets\image\tavuk-doner-ekmek.png
+    - C:\src\projects\mobil_app\assets\image\tavuk_durum.png
+    - C:\src\projects\mobil_app\assets\image\durum-et.png
+    - C:\src\projects\mobil_app\assets\image\karisik-pizza.png
+    - C:\src\projects\mobil_app\assets\image\etli-pizza.png
+    - C:\src\projects\mobil_app\assets\image\sosisli-pizza.png
+    - C:\src\projects\mobil_app\assets\image\sucuklu-pizza.png
+    - C:\src\projects\mobil_app\assets\image\tavuklu-pizza.png
+    - C:\src\projects\mobil_app\assets\image\mantarli-pizza.png
+    - C:\src\projects\mobil_app\assets\image\sebzeli-pizza.png
+    - C:\src\projects\mobil_app\assets\image\ton-balikli-pizza.png
+    - C:\src\projects\mobil_app\assets\image\bulgur.png
+    - C:\src\projects\mobil_app\assets\image\pirinc.png
+    - C:\src\projects\mobil_app\assets\image\manti.png
+    - C:\src\projects\mobil_app\assets\image\sarma.png
+    - C:\src\projects\mobil_app\assets\image\domates.png
+    - C:\src\projects\mobil_app\assets\image\tarhana.png
+    - C:\src\projects\mobil_app\assets\image\iskembe.png
+    - C:\src\projects\mobil_app\assets\image\kellepaca.png
+    - C:\src\projects\mobil_app\assets\image\mercimek.png
+    - C:\src\projects\mobil_app\assets\image\yayla.png
+    - C:\src\projects\mobil_app\assets\image\ezogelin.png
+    - C:\src\projects\mobil_app\assets\image\sobiyet.png
+    - C:\src\projects\mobil_app\assets\image\waffle.png
+    - C:\src\projects\mobil_app\assets\image\supangle.png
+    - C:\src\projects\mobil_app\assets\image\sutlac.png
+    - C:\src\projects\mobil_app\assets\image\profiterol.png
+    - C:\src\projects\mobil_app\assets\image\pasta.png
+    - C:\src\projects\mobil_app\assets\image\baklava.png
+    - C:\src\projects\mobil_app\assets\image\sekerpare.png
+    - C:\src\projects\mobil_app\assets\image\sufle.png
+    - C:\src\projects\mobil_app\assets\image\gul-borek.png
+    - C:\src\projects\mobil_app\assets\image\kiymali-borek.png
+    - C:\src\projects\mobil_app\assets\image\patatesli-borek.png
+    - C:\src\projects\mobil_app\assets\image\patlicanli-borek.png
+    - C:\src\projects\mobil_app\assets\image\su-borek.png
+    - C:\src\projects\mobil_app\assets\image\sigara-borek.png
+    - C:\src\projects\mobil_app\assets\image\kol-borek.png
+    - C:\src\projects\mobil_app\assets\image\kurt-borek.png
+    - C:\src\projects\mobil_app\assets\image\ayran.png
+    - C:\src\projects\mobil_app\assets\image\gazoz.png
+    - C:\src\projects\mobil_app\assets\image\kola.png
+    - C:\src\projects\mobil_app\assets\image\limonata.png
+    - C:\src\projects\mobil_app\assets\image\meyve-suyu.png
+    - C:\src\projects\mobil_app\assets\image\salgam-suyu.png
+    - C:\src\projects\mobil_app\assets\image\soguk-cay.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
